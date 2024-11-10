@@ -1,0 +1,437 @@
+/* Start Varible */
+:root {
+  /* --main-color: #fcb700; */ /* لون رئيسي معلق */
+  --main-color: #ff9800; /* اللون الرئيسي */
+  --main-color-alt: #e68900; /* اللون البديل الرئيسي */
+  --dark-color: #222222; /* لون داكن */
+  --parg-color: #666666; /* لون الفقرات */
+  --dark-red: #d01418; /* لون أحمر داكن */
+  --border-color: #6666662a; /* لون الحدود */
+  --name-item: #0066c0; /* لون العنصر */
+  --section-padding: 100px; /* حشوة للقسم */
+  --main-transition: 0.3s; /* زمن الانتقال الرئيسي */
+  --basic-padding: 100px; /* حشوة أساسية */
+  --onyx: hsl(240, 1%, 17%); /* لون أونيكس */
+}
+
+* {
+  box-sizing: border-box; /* تجعل قياس العناصر يشمل الحدود والحشوات */
+  padding: 0; /* تلغي الحشوة الافتراضية */
+  margin: 0; /* تلغي الهامش الافتراضي */
+}
+
+html {
+  scroll-behavior: smooth; /* تمرير سلس */
+}
+
+body {
+  font-family: "Cairo", sans-serif; /* تعيين خط الصفحة */
+  direction: rtl; /* اتجاه الكتابة من اليمين لليسار */
+}
+
+a {
+  text-decoration: none; /* إزالة التسطير من الروابط */
+}
+
+ul {
+  list-style: none; /* إزالة العلامات من قائمة غير مرتبة */
+}
+
+.title {
+  color: var(--main-color); /* لون العنوان */
+  text-align: center; /* محاذاة العنوان إلى الوسط */
+  font-size: 40px; /* حجم خط العنوان */
+  font-weight: bold; /* جعل النص عريضًا */
+  position: relative; /* تعيين موضع نسبي */
+  width: fit-content; /* ضبط العرض ليتناسب مع المحتوى */
+  margin: 30px auto; /* هامش عمودي وأفقي تلقائي */
+  border-bottom: 2px solid var(--main-color); /* حد سفلي بلون رئيسي */
+  padding: 10px 0; /* حشوة عمودية */
+}
+
+.has-scrollbar::-webkit-scrollbar {
+  width: 5px; /* عرض شريط التمرير العمودي */
+  height: 5px; /* ارتفاع شريط التمرير الأفقي */
+}
+
+.has-scrollbar::-webkit-scrollbar-track {
+  background: var(--onyx); /* خلفية مسار شريط التمرير */
+  border-radius: 5px; /* زوايا مدورة لمسار شريط التمرير */
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--main-color); /* لون مقبض شريط التمرير */
+  border-radius: 5px; /* زوايا مدورة لمقبض شريط التمرير */
+}
+
+.has-scrollbar::-webkit-scrollbar-button {
+  width: 20px; /* عرض زر شريط التمرير */
+}
+
+.container {
+  padding-left: 15px; /* حشوة داخلية من الجهة اليسرى */
+  padding-right: 15px; /* حشوة داخلية من الجهة اليمنى */
+  margin-left: auto; /* تعيين الهامش الأيسر تلقائيًا */
+  margin-right: auto; /* تعيين الهامش الأيمن تلقائيًا */
+}
+
+.landing-page {
+  background-image: url(../image/cashew-cores-1549580_1280.jpg); /* صورة خلفية للقسم */
+  background-size: cover; /* تغطية كاملة للصورة */
+  min-height: 100vh; /* الحد الأدنى للارتفاع ليكون 100% من ارتفاع الشاشة */
+  position: relative; /* تعيين موضع نسبي */
+  transition: 0.3s ease-in-out; /* تأثير الانتقال */
+}
+
+.landing-page .overlay {
+  position: absolute; /* تعيين موضع مطلق */
+  background-color: rgba(0, 0, 0, 0.5); /* خلفية مظللة */
+  width: 100%; /* عرض كامل */
+  height: 100%; /* ارتفاع كامل */
+  left: 0; /* محاذاة من الجهة اليسرى */
+  top: 0; /* محاذاة من الجهة العلوية */
+  z-index: 1; /* تعيين مستوى العمق */
+}
+
+.landing-page .landing-head {
+  display: flex; /* استخدام تخطيط مرن */
+  justify-content: space-between; /* توزيع المحتوى بين الجانبين */
+  align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
+  padding: 20px; /* حشوة داخلية */
+  position: relative; /* تعيين موضع نسبي */
+  z-index: 2; /* تعيين مستوى العمق */
+}
+
+.landing-page .landing-head .logo {
+  color: white; /* لون الشعار */
+  font-size: 25px; /* حجم خط الشعار */
+  font-weight: bold; /* جعل النص عريضًا */
+  padding: 10px; /* حشوة داخلية للشعار */
+  border-bottom: 1px solid var(--main-color); /* حد سفلي بلون رئيسي */
+}
+
+.landing-page .landing-head ul {
+  display: flex; /* استخدام تخطيط مرن لقائمة العناصر */
+}
+
+@media (max-width: 767px) {
+  .landing-page .landing-head ul {
+    display: none; /* إخفاء القائمة في الشاشات الصغيرة */
+  }
+
+  .landing-head .menu {
+    cursor: pointer; /* تغيير شكل المؤشر عند التحويم */
+    text-align: center; /* محاذاة النص إلى الوسط */
+    position: relative; /* تعيين موضع نسبي */
+    color: white; /* لون النص */
+    font-size: 25px; /* حجم خط القائمة */
+  }
+}
+
+@media (min-width: 768px) {
+  .landing-head .menu {
+    display: none; /* إخفاء الزر في الشاشات الكبيرة */
+  }
+}
+
+.landing-page .landing-head ul li {
+  margin-left: 10px; /* هامش أيسر للعناصر في القائمة */
+}
+
+.landing-page .landing-head ul li::after {
+  content: ""; /* إنشاء عنصر فارغ بعد العنصر */
+  display: block; /* عرض العنصر ككتلة */
+  width: 0; /* عرض البداية هو صفر */
+  height: 2px; /* ارتفاع الحد */
+  background-color: var(--main-color); /* لون الحد */
+  transition: 0.3s; /* تأثير الانتقال */
+}
+
+.landing-page .landing-head ul li:hover::after {
+  width: 100%; /* عرض الحد عند التحويم */
+}
+
+@media (max-width: 767px) {
+  .landing-page .landing-head ul li::after {
+    display: none; /* إخفاء الحد في الشاشات الصغيرة */
+  }
+}
+
+.landing-page .landing-head ul li a {
+  color: #fff; /* لون النص في الروابط */
+  font-size: 15px; /* حجم خط الروابط */
+  transition: 0.3s; /* تأثير الانتقال */
+  padding: 10px 15px; /* حشوة داخلية للروابط */
+  display: block; /* عرض الروابط ككتل */
+}
+
+@media (max-width: 767px) {
+  .landing-page .landing-head ul li a {
+    font-size: 10px; /* حجم خط الروابط في الشاشات الصغيرة */
+    font-weight: bold; /* جعل النص عريضًا */
+    white-space: nowrap; /* منع التفاف النص */
+  }
+}
+
+.landing-page .landing-head ul li.active a,
+.landing-page .landing-head ul li a:hover {
+  color: var(--main-color); /* تغيير لون النص عند التحويم أو كونه نشطًا */
+}
+
+.landing-page .text {
+  position: absolute; /* تعيين موضع مطلق */
+  text-align: center; /* محاذاة النص إلى الوسط */
+  top: 50%; /* محاذاة من الجهة العلوية إلى 50% */
+  left: 50%; /* محاذاة من الجهة اليسرى إلى 50% */
+  translate: -50% -50%; /* نقل العنصر إلى المنتصف */
+  color: var(--input-color); /* لون النص */
+  z-index: 2; /* تعيين مستوى العمق */
+  /* width: 50%; */ /* عرض العنصر (معطل) */
+}
+
+@media (max-width: 767px) {
+  .landing-page .text {
+    width: 100%; /* عرض العنصر في الشاشات الصغيرة */
+    padding: 20px; /* حشوة داخلية للذيل */
+  }
+}
+
+.landing-page .text h1 {
+  color: var(--main-color); /* لون العنوان */
+  font-size: 50px; /* حجم خط العنوان */
+  font-weight: 900; /* وزن خط عريض */
+  margin-bottom: 20px; /* هامش سفلي حول العنوان */
+  text-transform: capitalize; /* تحويل الحروف الأولى إلى أحرف كبيرة */
+}
+
+.landing-page .text p {
+  color: #ccc; /* لون النص */
+  line-height: 1.8; /* ارتفاع السطر للنص */
+  font-size: 20px; /* حجم خط النص */
+  margin: 0; /* إلغاء الهامش الافتراضي */
+}
+
+@media (max-width: 767px) {
+  .landing-page .text h1 {
+    font-size: 25px; /* حجم خط العنوان في الشاشات الصغيرة */
+    text-align: right;
+  }
+  .landing-page .text p {
+    font-size: 15px; /* حجم خط النص في الشاشات الصغيرة */
+    text-align: right;
+  }
+}
+
+.feature {
+  padding-top: 60px; /* حشوة علوية للقسم المميز */
+  padding-bottom: 60px; /* حشوة سفلية للقسم المميز */
+}
+
+.feature .container {
+  display: grid; /* يستخدم تخطيط الشبكة */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* يحدد الأعمدة بشكل تلقائي بحجم حد أدنى 200 بكسل */
+  gap: 20px; /* فراغ بين العناصر في الشبكة */
+  box-shadow: 0 0 10px #ddd; /* ظل خفيف حول الحاوية */
+}
+
+.feature .box {
+  text-align: center; /* يحاذي المحتوى داخل الصندوق إلى المنتصف */
+  padding: 20px; /* حشوة داخلية للصندوق */
+}
+
+.feature .box img {
+  max-width: 100px; /* الحد الأقصى لعرض الصورة داخل الصندوق */
+}
+
+.feature .box h3 {
+  font-size: 22px; /* حجم خط العنوان */
+  font-weight: bold; /* يجعل النص عريضًا */
+  margin: 10px 0; /* هامش عمودي حول العنوان */
+}
+
+.feature .box p {
+  line-height: 1.5; /* ارتفاع السطر للنص */
+  color: #777; /* لون النص */
+  font-size: 14px; /* حجم خط النص */
+}
+
+.product {
+  padding-top: 60px; /* حشوة علوية لقسم المنتجات */
+  padding-bottom: 60px; /* حشوة سفلية لقسم المنتجات */
+  background-color: #eee; /* لون خلفية القسم */
+}
+
+.product .container {
+  display: grid; /* يستخدم تخطيط الشبكة */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); /* يحدد الأعمدة بحجم حد أدنى 300 بكسل */
+  gap: 20px; /* فراغ بين العناصر في الشبكة */
+}
+
+.product .box {
+  text-align: center; /* يحاذي المحتوى داخل صندوق المنتج إلى المنتصف */
+  background-color: white; /* لون خلفية للصندوق */
+  box-shadow: 0 0 10px #ccc; /* ظل خفيف حول الصندوق */
+  border-radius: 4px; /* زوايا مدورة للصندوق */
+}
+
+.product .box img {
+  max-width: 100%; /* عرض الصورة بحد أقصى 100% من الصندوق */
+}
+
+.product .box h4 {
+  font-size: 25px; /* حجم خط عنوان المنتج */
+  font-weight: bold; /* يجعل النص عريضًا */
+  margin: 10px 0; /* هامش عمودي حول عنوان المنتج */
+}
+
+.product .box p {
+  line-height: 1.5; /* ارتفاع السطر للنص */
+  color: #777; /* لون النص */
+  font-size: 14px; /* حجم خط النص */
+}
+
+.product .box .price {
+  display: flex; /* يستخدم نظام مرن لترتيب العناصر */
+  justify-content: space-between; /* يوزع المساحة بين العناصر */
+  align-items: center; /* يحاذي العناصر عموديًا في المنتصف */
+  padding: 10px; /* حشوة داخلية للعنصر السعر */
+  font-size: 20px; /* حجم خط السعر */
+  border-top: 1px solid #ccc; /* حد علوي خفيف للصندوق */
+}
+
+.product .box .price span {
+  color: var(--main-color); /* لون السعر باستخدام متغير اللون الرئيسي */
+}
+
+.gallery {
+  padding-top: 60px; /* حشوة علوية لقسم المعرض */
+  padding-bottom: 60px; /* حشوة سفلية لقسم المعرض */
+}
+
+.gallery .container {
+  display: grid; /* يستخدم تخطيط الشبكة */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); /* يحدد الأعمدة بحجم حد أدنى 300 بكسل */
+  gap: 20px; /* فراغ بين العناصر في الشبكة */
+}
+
+.gallery .box {
+  position: relative; /* يسمح بتحديد الموقع بشكل نسبي */
+  overflow: hidden; /* يخفي الأجزاء الزائدة من المحتوى */
+}
+
+.gallery .box img {
+  max-width: 100%; /* عرض الصورة بحد أقصى 100% من الصندوق */
+  transition: 0.3s; /* تأثير الانتقال عند تغيير الخصائص */
+}
+
+.gallery .box:hover img {
+  transform: scale(1.1); /* يكبر الصورة عند التحويم */
+}
+
+.contact {
+  padding-top: 60px; /* حشوة علوية لقسم الاتصال */
+  padding-bottom: 60px; /* حشوة سفلية لقسم الاتصال */
+  background-color: #eee; /* لون خلفية القسم */
+}
+
+.contact .container form {
+  display: flex; /* يستخدم نظام مرن لترتيب عناصر النموذج */
+  flex-direction: column; /* يوزع العناصر عموديًا */
+  gap: 20px; /* فراغ بين العناصر في النموذج */
+}
+
+.contact .container form input,
+.contact .container form textarea {
+  padding: 20px; /* حشوة داخلية لعناصر النموذج */
+  border: 1px solid #ccc; /* حد خفيف حول العناصر */
+  border-radius: 4px; /* زوايا مدورة للعناصر */
+  resize: none; /* يمنع تغيير حجم عنصر النص */
+  outline: none; /* يزيل التأثير الافتراضي عند التركيز */
+}
+
+.contact .container form textarea {
+  height: 200px; /* ارتفاع عنصر النص */
+}
+
+.contact .container form input[type="submit"] {
+  display: block; /* يجعل الزر عنصر كتلة */
+  width: fit-content; /* يحدد عرض الزر وفقًا لمحتواه */
+  margin: 0 auto; /* يركز الزر في المنتصف */
+  padding: 20px 100px; /* حشوة داخلية للزر */
+  background-color: var(
+    --main-color
+  ); /* لون خلفية الزر باستخدام متغير اللون الرئيسي */
+  color: white; /* لون نص الزر */
+  font-weight: bold; /* يجعل النص عريضًا */
+  cursor: pointer; /* يظهر شكل المؤشر عند التحويم */
+  transition: 0.3s; /* تأثير الانتقال عند التفاعل مع الزر */
+}
+
+.contact .container form input[type="submit"]:hover {
+  background-color: var(--main-color-alt); /* يغير لون الزر عند التحويم */
+}
+
+.footer {
+  padding: 20px; /* حشوة داخلية للذيل */
+  background-color: var(
+    --dark-color
+  ); /* لون خلفية الذيل باستخدام متغير اللون الداكن */
+  color: white; /* لون النص في الذيل */
+  text-align: center; /* يحاذي النص في المنتصف */
+}
+
+.footer p {
+  margin: 0; /* يلغي الهامش الافتراضي للنص */
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px; /* عرض الحاوية في الشاشات الكبيرة */
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px; /* عرض الحاوية في الشاشات الكبيرة جدًا */
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px; /* عرض الحاوية في الشاشات العملاقة */
+  }
+}
+
+/* .landing-head .menu {
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  color: white;
+  font-size: 25px;
+}
+
+@media (min-width:768px){
+  .landing-head .menu {
+    display: noon;
+  }
+} */
+
+.landing-page .landing-head ul.active {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 20px;
+  top: 100%;
+  width: calc(100% - 40px);
+  backdrop-filter: blur(10px);
+}
